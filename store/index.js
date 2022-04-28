@@ -21,15 +21,15 @@ export const mutations = {
 
 export const actions = {
     async login ({ commit }, payload) {
-         await this.$axios.$post(process.env.BASE_URL + '/rcms-api/3/login', payload)
-         const profileRes = await this.$axios.$get(process.env.BASE_URL + '/rcms-api/3/profile')
+         await this.$axios.$post('/rcms-api/3/login', payload)
+         const profileRes = await this.$axios.$get('/rcms-api/3/profile')
          commit('setProfile', { profile: profileRes.data })
          commit('updateLocalStorage', { authenticated: true })
         },
 
     async logout ({ commit }) {
         try {
-            await this.$axios.$post(process.env.BASE_URL + '/rcms-api/3/logout')
+            await this.$axios.$post('/rcms-api/3/logout')
         } catch {
              /** No Process */
              /** エラーが返却されてきた場合は、結果的にログアウトできているものとみなし、これを無視します。 */
@@ -47,7 +47,7 @@ export const actions = {
             throw new Error('need to login')
         }
         try {
-            const profileRes = await this.$axios.$get(process.env.BASE_URL + '/rcms-api/3/profile')
+            const profileRes = await this.$axios.$get('/rcms-api/3/profile')
             commit('setProfile', { profile: profileRes.data })
         } catch {
             await dispatch('logout')
