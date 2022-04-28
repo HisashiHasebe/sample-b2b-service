@@ -13,6 +13,7 @@
 import { mapActions } from 'vuex'
 
 export default {
+  middleware: 'auth',
   async asyncData({$axios}) {
     try {
       const response = await $axios.$get(process.env.BASE_URL + '/rcms-api/4/service_top/4')
