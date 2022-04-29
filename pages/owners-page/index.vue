@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{ response.details.ext_col_01}}</h1>
-    <div>{{ response.details.ext_col_02}}</div>
+    <p>{{ response.details.ext_col_02}}</p>
 
   <button type="button" @click="logout">
   ログアウト
