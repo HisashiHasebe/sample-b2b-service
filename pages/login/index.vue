@@ -54,12 +54,13 @@ export default {
     },
     methods: {
         async login () {
-            localStorage.setItem('sitekey', this.sitekey);
-            this.$axios.defaults.baseURL = `https://${this.sitekey}.g.kuroco.app`;
             try {
                 const payload = {
-                    email: this.email,
-                    password: this.password
+                    sitekey: this.sitekey,
+                    loginInfo: {
+                        email: this.email,
+                        password: this.password
+                    }
                 }
                 await this.$store.dispatch('login', payload)
                 this.loginStatus = 'success'
