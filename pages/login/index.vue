@@ -4,6 +4,7 @@
         {{ resultMessage }}
       </p>
 
+        <input v-model="sitekey" name="sitekey" type="sitekey" placeholder="sitekey">
         <input v-model="email" name="email" type="email" placeholder="email">
         <input
             v-model="password"
@@ -20,6 +21,11 @@
                 ニュース一覧ページへ
             </nuxt-link>
         </div>
+        <div>
+            <nuxt-link to="/owners-page/">
+                契約者専用ページへ
+            </nuxt-link>
+        </div>
     </form>
 </template>
 
@@ -27,6 +33,7 @@
 export default {
     data () {
         return {
+            sitekey: '',
             email: '',
             password: '',
             loginStatus: null,
@@ -49,8 +56,11 @@ export default {
         async login () {
             try {
                 const payload = {
-                    email: this.email,
-                    password: this.password
+                    sitekey: this.sitekey,
+                    loginInfo: {
+                        email: this.email,
+                        password: this.password
+                    }
                 }
                 await this.$store.dispatch('login', payload)
                 this.loginStatus = 'success'
