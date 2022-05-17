@@ -1,5 +1,5 @@
 export default {
-  ssr: false,
+  ssr: true,
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
@@ -44,9 +44,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: process.env.BASE_URL,
-    credentials: true,
-    withCredentials: true
+    baseURL: '/',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
