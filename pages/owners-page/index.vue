@@ -16,7 +16,7 @@ export default {
   middleware: 'auth',
   async asyncData({$axios}) {
     try {
-      const response = await $axios.$get('/rcms-api/4/service_top/4')
+      const response = await $axios.$get(process.env.BASE_URL + '/rcms-api/4/service_top/4')
       return { response }
     } catch (e) {
       console.log(e.message)
