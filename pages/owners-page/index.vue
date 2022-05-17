@@ -14,9 +14,9 @@ import { mapActions } from 'vuex'
 
 export default {
   middleware: 'auth',
-  async asyncData({$axios, $config }) {
+  async asyncData({$axios}) {
     try {
-      const response = await $axios.$get($config.baseURL + '/rcms-api/4/service_top/4')
+      const response = await $axios.$get('/rcms-api/4/service_top/4')
       return { response }
     } catch (e) {
       console.log(e.message)
