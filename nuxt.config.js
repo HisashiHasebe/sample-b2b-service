@@ -1,5 +1,5 @@
 export default {
-  ssr: true,
+  ssr: false,
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
@@ -51,9 +51,5 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  },
-
-  privateRuntimeConfig: {
-    baseURL: process.env.BASE_URL
   },
 }
